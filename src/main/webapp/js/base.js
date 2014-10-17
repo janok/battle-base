@@ -49,12 +49,11 @@ $(document).ready(function () {
 	            });
 		
 		console.log(data);
-		sendpifmelding(event, data);		
+		sendPifMelding(event, data);		
 	});
 });
 
-function sendpifmelding(event, data) {
-    /*
+function sendPifMelding(event, data) {
     event.preventDefault();
 	var postData = data;
 	console.log(postData);
@@ -62,11 +61,7 @@ function sendpifmelding(event, data) {
 		url : "http://bouvet-code-camp.azurewebsites.net/api/game/base/sendpifmelding",
 		type : 'POST',
 		data : postData,
-		success: function(data) {
-			alert("success");
-		}
-	  });    
-     */
+	  });
 };
 
 function initializeMap() {
