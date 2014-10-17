@@ -60,6 +60,7 @@ function sendPifMelding(event, data) {
 	$.ajax({
 		url : "http://bouvet-code-camp.azurewebsites.net/api/game/base/sendpifmelding",
 		type : 'POST',
+		contentType:"application/json; charset=utf-8",
 		data : postData,
 	  });
 };
