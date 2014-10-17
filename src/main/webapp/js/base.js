@@ -4,16 +4,17 @@
 $(document).ready(function () {
 
     var map = initializeMap();
-    setMyPositionMarker(map);
 
     $.ajax({
         url: "http://bouvet-code-camp.azurewebsites.net/api/game/base/hentgjeldendepost/4c97faa"
     }).then(function(data) {
         console.log(data);
         $('.gjeldende_navn').append(data.navn);
-        $('.gjeldende_longitude').append(data.gps.longitude);
         $('.gjeldende_latitude').append(data.gps.latitude);
+        $('.gjeldende_longitude').append(data.gps.longitude);
         $('.gjeldende_postNummer').append(data.postNummer);
+
+        setMyPositionMarker(map, data.gps.latitude, data.gps.longitude, data.navn);
     });
 
     $.ajax({
@@ -25,6 +26,8 @@ $(document).ready(function () {
         $('.posisjon_infisert').append(data.infisert);
         $('.posisjon_tid').append(data.tid);
         $('.posisjon_erinfisert').append(data.erinfisert);
+
+        setMyPositionMarker(map, data.latitude, data.longitude, "PIF");
     });
 
     $.ajax({
@@ -86,14 +89,14 @@ function setCurrentPosition(map) {
     }
 }
 
-function setMyPositionMarker(map) {
+function setMyPositionMarker(map, lat, long, text) {
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            myLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            myLocation = new google.maps.LatLng(lat, long);
             var marker = new google.maps.Marker({
                 position: myLocation,
-                title:"Kor i svartre er eg?"
+                title: text
             });
 
 
