@@ -4,11 +4,12 @@
 $(document).ready(function () {
 
 	$( "#sendpifmelding" ).submit(function(event) {
+		var type = $( "#selectType option:selected" ).val();
 		var innhold = $(this).find("input[name='txtInnhold']").val();
-		
+	
 		var data = JSON.stringify(
 	            {
-	                Type: "Fritekst",
+	                Type: type,
 	                Innhold: innhold,
 	                LagId: "4c97faa" 
 	            });
@@ -26,9 +27,8 @@ function sendpifmelding(event, data) {
 		url : "http://bouvet-code-camp.azurewebsites.net/api/game/base/sendpifmelding",
 		type : 'POST',
 		data : postData
-	  }).done(function() {
-	    alert( "success" );
-	  }).fail(function() {
-	    alert( "error" );
-	  });	    
+		success: function(data) {
+			alert("success");
+		}
+	  });    
 };

@@ -2,7 +2,7 @@
 
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="js/base.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 <p class="melding"></p>
 
 <form id="sendpifmelding" action="#">
-	Type: <select>
+	Type: <select id="selectType">
 	  <option value="Ingen">Ingen</option>
 	  <option value="Fritekst">Fritekst</option>
 	  <option value="Lengde">Lengde</option>
