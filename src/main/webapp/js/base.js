@@ -4,21 +4,31 @@
 $(document).ready(function () {
 
 	$( "#sendpifmelding" ).submit(function(event) {
-		sendpifmelding(event, this);		
+		var innhold = $(this).find("input[name='txtInnhold']").val();
+		
+		var data = JSON.stringify(
+	            {
+	                Type: "Fritekst",
+	                Innhold: innhold,
+	                LagId: "4c97faa" 
+	            });
+		
+		console.log(data);
+		sendpifmelding(event, data);		
 	});
-    
 });	
 
-function sendpifmelding(event, this) {
+function sendpifmelding(event, data) {
     event.preventDefault();
-	
-	$.post("http://bouvet-code-camp.azurewebsites.net/api/game/base/sendpifmelding",
-    		    {'Type': 'Fritekst','Innhold': 'TEST','LagId': '4c97faa'},
-    		    function(data, textStatus, jqXHR)
-    		    {
-    		        $('.melding').append(textStatus);
-    		    }).fail(function(jqXHR, textStatus, errorThrown) 
-    		    {
-    		        alert(textStatus);
-    		    });
+	var postData = data;
+	console.log(postData);
+	$.ajax({
+		url : "http://bouvet-code-camp.azurewebsites.net/api/game/base/sendpifmelding",
+		type : 'POST',
+		data : postData
+	  }).done(function() {
+	    alert( "success" );
+	  }).fail(function() {
+	    alert( "error" );
+	  });	    
 };
