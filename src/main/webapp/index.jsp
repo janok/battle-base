@@ -7,7 +7,44 @@
 
 <body>
 
-<h2>Hello World!</h2>
+<table width="100%" border="1">
+    <thead>
+    <th>Post nummer</th>
+    <th>Post navn</th>
+    <th>Longitude</th>
+    <th>Latitude</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="gjeldende_postNummer"></td>
+        <td class="gjeldende_navn"></td>
+        <td class="gjeldende_longitude"></td>
+        <td class="gjeldende_latitude"></td>
+    </tr>
+    </tbody>
+</table>
+
+<table width="100%" border="1">
+    <thead>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Infisert</th>
+    <th>Tid</th>
+    <th>ER Infisert ???</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="posisjon_latitude"></td>
+        <td class="posisjon_longitude"></td>
+        <td class="posisjon_infisert"></td>
+        <td class="posisjon_tid"></td>
+        <td class="posisjon_erinfisert"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+<p class="koder"></p>
 
 <p class="navn"></p>
 <p class="melding"></p>
