@@ -17,27 +17,18 @@ $(document).ready(function () {
         setMyPositionMarker(map, data.gps.latitude, data.gps.longitude, data.navn);
     });
 
-    var callAjax = function() {
-	    $.ajax({
-	        url: "http://bouvet-code-camp.azurewebsites.net/api/game/base/hentpifposisjon/4c97faa"
-	    }).then(function(data) {
-	        console.log(data);
-	        $('.posisjon_latitude').text("");
-	        $('.posisjon_longitude').text("");
-	        $('.posisjon_infisert').text("");
-	        $('.posisjon_tid').text("");
-	        $('.posisjon_erinfisert').text("");
-	        
-	        $('.posisjon_latitude').append(data.latitude);
-	        $('.posisjon_longitude').append(data.longitude);
-	        $('.posisjon_infisert').append(data.infisert);
-	        $('.posisjon_tid').append(data.tid);
-	        $('.posisjon_erinfisert').append(data.erinfisert);
-	
-	        setMyPositionMarker(map, data.latitude, data.longitude, "PIF");
-	    });
-    }
-    setInterval(callAjax, 10000);
+    $.ajax({
+        url: "http://bouvet-code-camp.azurewebsites.net/api/game/base/hentpifposisjon/4c97faa"
+    }).then(function(data) {
+        console.log(data);
+        $('.posisjon_latitude').append(data.latitude);
+        $('.posisjon_longitude').append(data.longitude);
+        $('.posisjon_infisert').append(data.infisert);
+        $('.posisjon_tid').append(data.tid);
+        $('.posisjon_erinfisert').append(data.erinfisert);
+
+        setMyPositionMarker(map, data.latitude, data.longitude, "PIF");
+    });
     
     $.ajax({
         url: "http://bouvet-code-camp.azurewebsites.net/api/game/base/hentregistrertekoder/4c97faa"
