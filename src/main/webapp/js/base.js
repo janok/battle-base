@@ -62,6 +62,12 @@ function sendPifMelding(event, data) {
 		type : 'POST',
 		contentType:"application/json; charset=utf-8",
 		data : postData,
+		success : function(response) {
+            alert('Melding sendt');
+        },
+        error : function(response) {
+            alert('Feil ved sending av melding!');
+        }
 	  });
 };
 
