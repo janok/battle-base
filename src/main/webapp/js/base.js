@@ -22,6 +22,12 @@ $(document).ready(function () {
 	        url: "http://bouvet-code-camp.azurewebsites.net/api/game/base/hentpifposisjon/4c97faa"
 	    }).then(function(data) {
 	        console.log(data);
+	        $('.posisjon_latitude').text("");
+	        $('.posisjon_longitude').text("");
+	        $('.posisjon_infisert').text("");
+	        $('.posisjon_tid').text("");
+	        $('.posisjon_erinfisert').text("");
+	        
 	        $('.posisjon_latitude').append(data.latitude);
 	        $('.posisjon_longitude').append(data.longitude);
 	        $('.posisjon_infisert').append(data.infisert);
